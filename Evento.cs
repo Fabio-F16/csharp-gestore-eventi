@@ -94,12 +94,15 @@ namespace csharp_gestore_eventi
         }
 
 
-        public void ToString()
+        public override string ToString()
         {
-            Console.WriteLine("Il nome dell'evento è: " + this.Titolo);
-            Console.WriteLine("La data dell'evento è: " + this.Date);
-            Console.WriteLine("La capienza massima dell'evento è: " + this.capienzaMassima);
+            //Console.WriteLine();
+            //Console.WriteLine("Il nome dell'evento è: " + this.Titolo);
+            //Console.WriteLine("La data dell'evento è: " + this.Date);
+            //Console.WriteLine("La capienza massima dell'evento è: " + this.capienzaMassima);
 
+
+            return this.Date + " - " + this.Titolo;
            // return base.ToString() + "\n" + "Il nome dell'evento è: " + this.Titolo + "\n" + "La data dell'evento è: " + this.Date + "La capienza massima dell'evento è: " +  this.capienzaMassima;
         }
     }
