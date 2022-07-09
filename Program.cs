@@ -66,7 +66,7 @@
                 string titoloEvento = Console.ReadLine();
 
                 Console.WriteLine("Inserisci la data dell'evento (gg/mm/yyy): ");
-                DateOnly dataEvento = System.DateOnly.Parse(Console.ReadLine());
+                DateTime dataEvento = System.DateTime.Parse(Console.ReadLine());
 
                 Console.WriteLine("Inserisci il numero dei posti totali: ");
                 int postiTotali = Int32.Parse(Console.ReadLine());

@@ -11,7 +11,7 @@ namespace csharp_gestore_eventi
 
         // attributi
         private string titolo;
-        private DateOnly date;
+        private DateTime date;
         private int capienzaMassima;
         public int postiPrenotati { get; private set; }
 
@@ -29,14 +29,14 @@ namespace csharp_gestore_eventi
                 this.titolo = value;
             }
         }
-        public DateOnly Date { 
+        public DateTime Date { 
             get{
                
                 return this.date;
             }
             set
             {
-                if(value < DateOnly.FromDateTime(DateTime.Now))
+                if(value < DateTime.Now)
                 {
                     throw new ArgumentException("La data è passata");
                 }
@@ -60,7 +60,7 @@ namespace csharp_gestore_eventi
         
 
         // costruttore
-        public Evento(string titolo, DateOnly date, int capienzaMassima)
+        public Evento(string titolo, DateTime date, int capienzaMassima)
         {
             this.Titolo = titolo;
             this.Date = date;
@@ -98,7 +98,6 @@ namespace csharp_gestore_eventi
         {
             return this.Date + " - " + this.Titolo;
         }
-
 
     }
 }
