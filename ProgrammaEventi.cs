@@ -9,19 +9,23 @@ namespace csharp_gestore_eventi
     internal class ProgrammaEventi
     {
         public string Titolo { get; set; }
-        public List<Evento> eventi;
+        public List<Evento> Eventi { get; private set; }
+
 
         public ProgrammaEventi(string titolo)
         {
-            Titolo = titolo;  
+            this.Titolo = titolo;  
+            this.Eventi = new List<Evento>();
         }   
 
-
+        // aggiungi evento alla lista
         public void AddEvent(Evento evento)
         {
-            this.eventi.Add(evento);
+            this.Eventi.Add(evento);
         }
 
+
+        // ricerca per data
         public void SearchEventByDate()
         {
             List<Evento> tempEvents = new List<Evento>();
@@ -29,7 +33,7 @@ namespace csharp_gestore_eventi
             string SDate = Console.ReadLine();
             DateTime date = Convert.ToDateTime(SDate);
 
-            foreach (Evento evento in this.eventi)
+            foreach (Evento evento in this.Eventi)
             {
                 if(evento.Date == date)
                 {
@@ -43,6 +47,8 @@ namespace csharp_gestore_eventi
             }
         }
 
+
+        // stampa lista
         public static void StampEventsList(List<Evento> eventi)
         {
             foreach (Evento eventItem in eventi)
@@ -51,21 +57,25 @@ namespace csharp_gestore_eventi
             }
         }
 
-
+        // conteggio eventi
         public void CountEvents()
         {
-            Console.WriteLine("Numero eventi in programma: " + this.eventi.Count());
+           Console.WriteLine("Numero eventi in programma: " + this.Eventi.Count());
         }
 
+
+        // svuota lista eventi
         public void EmptyListEvent()
         {
-            this.eventi.Clear();
+            this.Eventi.Clear();
         }
 
+
+        // mostra programma eventi
         public string ShowProgramEvents()
         {
-            string program = "Nome programma eventi" + this.Titolo;
-            foreach(Evento evento in this.eventi)
+            string program = "Nome programma eventi " + this.Titolo;
+            foreach(Evento evento in this.Eventi)
             {
                 program += evento.ToString();
             }

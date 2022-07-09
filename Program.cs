@@ -6,22 +6,13 @@
         static void Main(string[] args)
         {
             //Console.WriteLine("Hello, World!");
-            
-           Evento evento = CreaEvento();
-           Prenotazioni(evento);
 
+           // Evento evento = CreaEvento();
+            //Prenotazioni(evento);
 
-
-
-
-
-
-
-
-
+            CreaProgrammaEventi();
 
             // metodi 
-
 
             // prenota posti
             void Prenotazioni(Evento evento)
@@ -75,6 +66,34 @@
                 Console.WriteLine(evento.ToString());
 
                 return evento;
+            }
+
+            // creazione programma eventi
+            void CreaProgrammaEventi()
+            {
+                Console.WriteLine("Inserire il titolo del nuovo programma eventi: ");
+                string titolo = Console.ReadLine();
+
+                ProgrammaEventi programmaEventi = new ProgrammaEventi(titolo);
+
+                Console.WriteLine("Quanti eventi inserire nel programma?");
+                int numeroEventi = Int32.Parse(Console.ReadLine());
+
+
+                for(int i = 0; i < numeroEventi; i++)
+                {
+                    Evento nuovoEvento = CreaEvento();
+                    if (nuovoEvento == null)
+                    {
+                        throw new Exception("Attenzione è stato generato un evento nullo");
+                    }
+                    programmaEventi.AddEvent(nuovoEvento);
+                }
+                
+                programmaEventi.CountEvents();
+                ProgrammaEventi.StampEventsList(programmaEventi.Eventi);
+                Console.WriteLine(programmaEventi.ShowProgramEvents());
+                programmaEventi.SearchEventByDate();
             }
 
         }     
